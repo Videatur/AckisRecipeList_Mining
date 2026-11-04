@@ -1,9 +1,10 @@
-## Interface: 11509, 20506, 50504
+## Interface: 16001
 ## Title: Ackis Recipe Classic: Mining
 ## Notes: Mining data for Ackis Recipe List Classic.
 ## Author: Videatur
-## Version: 11.0.0
+## Version: 12.0.0
 ## X-Credits: Original authors: Ackis, Pompy, Ressy, Torhal.
+## IconTexture: Interface\Icons\Inv_pick_03
 ## Dependencies: AckisRecipeList
 ## LoadOnDemand: 1
 
@@ -13,3 +14,4 @@ MobDrops.lua
 Quests.lua
 Trainers.lua
 Recipes.lua
+Guide.lua

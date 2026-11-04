@@ -1,7 +1,7 @@
 
 -- Constants
 local MODULE_NAME = "Mining"
-local MODULE_VERSION = 4
+local MODULE_VERSION = 5
 
 -------------------------------------------------------------------------------
 -- AddOn namespace.
@@ -12,7 +12,11 @@ local LibStub = _G.LibStub
 local addon = LibStub("AceAddon-3.0"):GetAddon("Ackis Recipe List")
 local constants = addon.constants
 
-if MODULE_VERSION ~= addon.SUPPORTED_MODULE_VERSION then
+-- Load-on-demand modules can initialize before the parent addon's
+-- OnInitialize publishes SUPPORTED_MODULE_VERSION.  Only enforce the version
+-- check after that value is available; otherwise this falsely reports a
+-- mismatch (5 ~= nil) and calls an uninitialized dialog helper.
+if addon.SUPPORTED_MODULE_VERSION and MODULE_VERSION ~= addon.SUPPORTED_MODULE_VERSION then
 	addon:SpawnModuleWrongVersionDialog({
 		moduleName = MODULE_NAME,
 		moduleVersion = MODULE_VERSION
@@ -30,8 +34,7 @@ local module = addon:NewModule(MODULE_NAME)
 -- Setup.
 -------------------------------------------------------------------------------
 function module:OnInitialize()
-	-- Load
-	local smeltingName = _G.GetSpellInfo(2656) -- Smelting
+	local smeltingName = _G.C_Spell.GetSpellName(2656) -- Smelting
 	if smeltingName then
 		self.ActivationSpellID = 2656
 	else
@@ -44,9 +47,8 @@ end
 
 function module:OnEnable()
 	addon.CreateProfessionFromModule(self)
-
-	self:InitializeMobDrops()
-	self:InitializeQuests()
-	self:InitializeTrainers()
-	self:InitializeRecipes()
+	if self.InitializeMobDrops then self:InitializeMobDrops() end
+	if self.InitializeQuests then self:InitializeQuests() end
+	if self.InitializeTrainers then self:InitializeTrainers() end
+	if self.InitializeRecipes then self:InitializeRecipes() end
 end

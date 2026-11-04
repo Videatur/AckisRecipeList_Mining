@@ -30,15 +30,14 @@ function module:InitializeQuests()
 	end
 
 	AddQuest(4083,	Z.BLACKROCK_DEPTHS,		0,	0,	"Neutral")
-	AddQuest(38792,	Z.HIGHMOUNTAIN,			55.0,	84.0,	"Neutral")
-	AddQuest(38793,	Z.HIGHMOUNTAIN,			55.0,	84.0,	"Neutral")
-	AddQuest(38794,	Z.HIGHMOUNTAIN,			55.0,	84.0,	"Neutral")
-	AddQuest(38800,	Z.SURAMAR,			29.8,	53.4,	"Neutral")
-	AddQuest(38801,	Z.SURAMAR,			29.8,	53.4,	"Neutral")
-	AddQuest(38802,	Z.SURAMAR,			29.8,	53.4,	"Neutral")
-	AddQuest(38804,	Z.SURAMAR,			37.2,	70.8,	"Neutral")
-	AddQuest(38805,	Z.SURAMAR,			64.2,	54.3,	"Neutral")
-	AddQuest(38807,	Z.DALARAN_BROKENISLES,		0,	0,	"Neutral") --Needs updating
+	-- Camping 101.
+	AddQuest(96046, Z.DUN_MOROGH, 46.6, 53.8, "Alliance")
+	AddQuest(97907, Z.DUROTAR, 52, 47.2, "Horde")
+	AddQuest(97923, Z.ELWYNN_FOREST, 44.8, 63.2, "Alliance")
+	AddQuest(97935, Z.MULGORE, 46.2, 67.2, "Horde")
+	AddQuest(97948, Z.TELDRASSIL, 57.6, 56.6, "Alliance")
+	AddQuest(97959, Z.TIRISFAL_GLADES, 57.2, 55.6, "Horde")
+	AddQuest(97970, Z.ZEPHRAS_ISLE, 41.6, 44.8, "Neutral")
 
 	self.InitializeQuests = nil
 end

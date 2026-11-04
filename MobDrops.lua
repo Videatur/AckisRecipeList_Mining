@@ -31,7 +31,6 @@ function module:InitializeMobDrops()
 	end
 
 	AddMob(14401,	L["Master Elemental Shaper Krixix"],	Z.BLACKWING_LAIR,		0, 0)
-	AddMob(150191,	L["Avarius"],				Z.NAZJATAR,			0, 0)
 
 	self.InitializeMobDrops = nil
 end
